@@ -1,0 +1,61 @@
+body {
+    background-color: rgba(165, 208, 245, 0.815);
+    margin: 0
+}
+
+.container {
+    padding-bottom: 5vh;
+    margin: 0 20vw 0 20vw;
+    width: 60vw;
+    background-color: white;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px rgba(59, 63, 255, 0.384);
+}
+
+.container h1 {
+    padding-top: 20px;
+    margin-left: 20px;
+}
+
+.books > li {
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    padding: 10px;
+    }
+
+    .delete-button {
+    font-size: 12px;
+    margin-top: 15px;
+    height: 4vh;
+    width: 4vw
+    }
+
+    .read-button {
+        font-size: 12px;
+        margin-top: 15px;
+        height: 4vh;
+        width: 4vw
+
+    }
+
+    .books li #text {
+        color: red;
+    }
+
+.listOf {
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-right: 5vw;
+}
+
+.listOf ul {
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 4px rgba(59, 63, 255, 0.384);
+    border: 2px solid black;
+}
+
+.addBook form {
+    padding-left: 20px;
+}
