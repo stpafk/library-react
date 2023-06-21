@@ -6,7 +6,14 @@ const View = (props) => {
     return (
         <ul>
             {books.map((book) => {
-                return <div className="bookDiv"></div>
+                return <div className="bookDiv">
+                    <li key={book.id}>{book.number}</li>
+                    <h3 className="bookTitle">{book.title}</h3>
+                    <h4 className="bookAuthor">{book.author}</h4>
+                    <p className="bookPages">{book.pages}</p>
+                    <p className="bookRead">{book.read}</p>
+
+                </div>
             })}
         </ul>
     )
