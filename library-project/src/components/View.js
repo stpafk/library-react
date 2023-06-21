@@ -1,12 +1,12 @@
 import React from "react";
 
 const View = (props) => {
-    const books = props;
+    const {books} = props;
     
     return (
         <ul>
             {books.map((book) => {
-                return <div className="bookDiv">
+                return <div className="bookDiv" id={book.id}>
                     <li key={book.id}>{book.number}</li>
                     <h3 className="bookTitle">{book.title}</h3>
                     <h4 className="bookAuthor">{book.author}</h4>

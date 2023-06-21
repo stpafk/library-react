@@ -11,43 +11,23 @@ class App extends Component {
                     author: "",
                     pages: "",
                     id: uniqid(),
-                    read: false,
+                    read: "Read",
                     number: 1,
                 },
             books: [],
         };
     }
-    /*
-    onChangeTitle = (e) => {
-        this.setState({
-            book: { title: e.target.value,
-            author: this.state.book.author,
-            pages: this.state.book.pages,
-            read: this.state.book.read, 
-            id: this.state.book.id}
-        })
-    }
+    
+        onChange(e) {
+            const value = e.target.value;
+            this.setState({
+                book: {
+                    ...this.state,
+                    [e.target.name]: value
+                }
+            });
+        }
 
-    onChangeAuthor = (e) => {
-        this.setState({
-            book: { title: this.state.book.title,
-            author: e.target.value,
-            pages: this.state.book.pages,
-            read: this.state.book.read, 
-            id: this.state.book.id}
-        })
-    }
-
-    onChangePages = (e) => {
-        this.setState({
-            book: { title: this.state.book.title,
-            author: e.target.value,
-            pages: this.state.book.pages,
-            read: this.state.book.read, 
-            id: this.state.book.id}
-        })
-    }
-    */
     onSubmitBook = (e) => {
         e.preventDefault();
         this.setState({
@@ -68,14 +48,24 @@ class App extends Component {
 
         return (
             <div className="bookForm">
-                <form className="addBook" onChange={this.onSubmitBook}>
+                <form className="addBook" onSubmit={this.onSubmitBook}>
                     <label htmlFor="titleInput">Enter Book Title </label>
-                    <input type="text" id="titleInput" onChange={this.onChangeTitle} value={book.text}></input>
+                    <input type="text" id="titleInput"
+                        onChange={this.onChange}
+                        name="title"
+                        value={book.title}>
+                    </input>
                     <label htmlFor="authorInput">Author: </label>
-                    <input type="text" id="authorInput" value={book.author}></input>
+                    <input type="text" id="authorInput" 
+                        onChange={this.onChange}
+                        value={book.author}>
+                    </input>
                     <label htmlFor="pages">Pages: </label>
-                    <input type="text" id="pagesInput"></input>
-                    <select name="bookStatus" id="dropdown">
+                    <input type="text" id="pagesInput"
+                        
+                        value={book.pages}>       
+                    </input>
+                    <select name="bookStatus" id="dropdown"  value={book.read}>
                         <option value="Read" id="dropdown1">Read</option>
                         <option value="Unread" id="dropdown2">Unread</option>
                     </select>
