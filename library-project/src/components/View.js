@@ -4,7 +4,7 @@ const View = (props) => {
     const {books} = props;
     
     return (
-        <ul>
+        <ul> {console.log(books)}
             {books.map((book) => {
                 return <div className="bookDiv" id={book.id}>
                     <li key={book.id}>{book.number}</li>
