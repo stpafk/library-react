@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import View from "./components/Overview";
+import View from "./components/View";
 import uniqid from "uniqid";
 
 class App extends Component {

@@ -12,7 +12,6 @@ const View = (props) => {
                     <h4 className="bookAuthor">{book.author}</h4>
                     <p className="bookPages">{book.pages}</p>
                     <p className="bookRead">{book.read}</p>
-
                 </div>
             })}
         </ul>
