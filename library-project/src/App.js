@@ -16,14 +16,18 @@ class App extends Component {
                 },
             books: [],
         };
+
+        this.onChangeInput = this.onChangeInput.bind(this);
+        this.onSubmitBook = this.onSubmitBook.bind(this);
     }
     
     onChangeInput = (e) => {
-        const value = e.target.value;
+        const name = e.target.name;
+        const value = e.target.value
         this.setState({
             book: {
-                ...this.state,
-                [e.target.name]: value
+                ...this.state.book,
+                [name]: value,
             }
         });
     }
@@ -57,15 +61,19 @@ class App extends Component {
                     </input>
                     <label htmlFor="authorInput">Author: </label>
                     <input type="text" id="authorInput" 
+                        name="author"
                         onChange={this.onChangeInput}
                         value={book.author}>
                     </input>
                     <label htmlFor="pages">Pages: </label>
-                    <input type="text" id="pagesInput"
-                        
-                        value={book.pages}>       
+                    <input type="number" id="pagesInput"  
+                        name="pages"                     
+                        value={book.pages}       
+                        onChange={this.onChangeInput}>
                     </input>
-                    <select name="bookStatus" id="dropdown" onChange={this.onChangeInput}  value={book.read}>
+                    <select id="dropdown" 
+                        onChange={this.onChangeInput} 
+                        value={book.read}>
                         <option value="Read" id="dropdown1">Read</option>
                         <option value="Unread" id="dropdown2">Unread</option>
                     </select>
