@@ -11,7 +11,7 @@ class App extends Component {
                     author: "",
                     pages: "",
                     id: uniqid(),
-                    read: "Read",
+                    read: "",
                     number: 1,
                 },
             books: [],
@@ -41,7 +41,7 @@ class App extends Component {
                 author: "",
                 pages: "",
                 id: uniqid(),
-                read: "Read",
+                read: "",
                 number: this.state.book.number + 1,
             },
         });
