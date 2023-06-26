@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import View from "./components/View";
+import Books from "./components/Books";
 import uniqid from "uniqid";
 
 class App extends Component {
@@ -11,7 +11,7 @@ class App extends Component {
                     author: "",
                     pages: "",
                     id: uniqid(),
-                    read: "",
+                    status: "",
                     number: 1,
                 },
             books: [],
@@ -23,7 +23,7 @@ class App extends Component {
     
     onChangeInput = (e) => {
         const name = e.target.name;
-        const value = e.target.value
+        const value = e.target.value;
         this.setState({
             book: {
                 ...this.state.book,
@@ -31,6 +31,7 @@ class App extends Component {
             }
         });
     }
+
 
     onSubmitBook = (e) => {
         e.preventDefault();
@@ -41,7 +42,7 @@ class App extends Component {
                 author: "",
                 pages: "",
                 id: uniqid(),
-                read: "",
+                status: "",
                 number: this.state.book.number + 1,
             },
         });
@@ -69,19 +70,24 @@ class App extends Component {
                     <input type="number" id="pagesInput"  
                         name="pages"                     
                         value={book.pages}       
-                        onChange={this.onChangeInput}>
+                        onChange={this.onChangeInput}
+                        min="0"
+                        max="1000000">
                     </input>
-                    <select id="dropdown" 
-                        onChange={this.onChangeInput} 
-                        value={book.read}>
-                        <option value="Read" id="dropdown1">Read</option>
-                        <option value="Unread" id="dropdown2">Unread</option>
+                    <label htmlFor="status">Status: </label>
+                    <select id="status" 
+                        name = "status"
+                        onChange={this.onChangeInput}
+                        value={book.status}>
+                        <option value="Unread" id="unread">Unread</option>
+                        <option value="Reading" id="reading">Reading</option>
+                        <option value="Read" id="read">Read</option>
                     </select>
                     <button type="submit">
                         Add Book
                     </button>  
                 </form>
-                <View books={books}/>
+                <Books books={books}/>
             </div>
         ) 
     }
