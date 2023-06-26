@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Books from "./components/Books";
 import uniqid from "uniqid";
+import './App.css';
 
 class App extends Component {
     constructor() {
@@ -52,6 +53,10 @@ class App extends Component {
         const {book, books} = this.state;
 
         return (
+            <>
+            <header>
+                <h1>Your Library</h1>
+            </header>
             <div className="bookForm">
                 <form className="addBook" onSubmit={this.onSubmitBook}>
                     <label htmlFor="titleInput">Enter Book Title </label>
@@ -87,8 +92,14 @@ class App extends Component {
                         Add Book
                     </button>  
                 </form>
+            </div>
+            <div className="books">
                 <Books books={books}/>
             </div>
+            <footer>
+                <h3>Created by stpafk</h3>
+            </footer>
+            </>
         ) 
     }
 }
