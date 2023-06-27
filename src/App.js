@@ -58,8 +58,9 @@ class App extends Component {
                 <h1>Your Library</h1>
             </header>
             <div className="bookForm">
+                <h3>Add Book</h3>
                 <form className="addBook" onSubmit={this.onSubmitBook}>
-                    <label htmlFor="titleInput">Enter Book Title </label>
+                    <label htmlFor="titleInput">Book Title: </label>
                     <input type="text" id="titleInput"
                         onChange={this.onChangeInput}
                         name="title"
@@ -88,7 +89,7 @@ class App extends Component {
                         <option value="Reading" id="reading">Reading</option>
                         <option value="Read" id="read">Read</option>
                     </select>
-                    <button type="submit">
+                    <button type="submit" className="submitBook">
                         Add Book
                     </button>  
                 </form>
