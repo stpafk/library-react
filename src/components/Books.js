@@ -5,6 +5,8 @@ const View = (props) => {
 
     return (
         <ul>
+            {books.length === 0 ? 
+            <h1 className="empty">No books registered yet.</h1> : <h1 className="Title">Your Books</h1>}
             {books.map((book) => {
                 if (book.status === "") {
                     book.status = "Unread";

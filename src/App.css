@@ -1,5 +1,6 @@
 :root {
     --bg-color: lightblue;
+    font-family: 'Belanosima', sans-serif;
 }
 
 body {
@@ -19,12 +20,15 @@ header {
     border: 4px solid black;
 }
 
-ul {
+.books {
     background-color: white;
+    min-height: 80vh;
+    max-height: 80%;
+    margin: 5vh 10vw 0 10vw;
+    border: 4px solid black;
 }
 
 footer {
-    position: absolute;
     top: 90%;
     display: flex;
     align-items: center;
