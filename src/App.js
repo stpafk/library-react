@@ -20,6 +20,7 @@ class App extends Component {
 
         this.onChangeInput = this.onChangeInput.bind(this);
         this.onSubmitBook = this.onSubmitBook.bind(this);
+        this.onDeleteBook = this.onDeleteBook.bind(this);
     }
     
     onChangeInput = (e) => {
@@ -47,7 +48,16 @@ class App extends Component {
                 number: this.state.book.number + 1,
             },
         });
-    };
+    }
+
+    onDeleteBook = (id) => {
+        const newState = this.state.books.filter((book) => book.id !== id);
+
+        this.setState({
+            ...this.state.book,
+            books : newState,
+        })
+    }
 
     render() {
         const {book, books} = this.state;
@@ -95,7 +105,7 @@ class App extends Component {
                 </form>
             </div>
             <div className="books">
-                <Books books={books}/>
+                <Books books={books} deleteBook={this.onDeleteBook}/>
             </div>
             <footer>
                 <h3>Created by stpafk</h3>

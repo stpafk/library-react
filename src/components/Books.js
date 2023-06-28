@@ -1,7 +1,7 @@
 import React from "react";
 
 const View = (props) => {
-    const {books} = props;
+    const {books, deleteBook} = props;
 
     return (
         <ul>
@@ -17,6 +17,8 @@ const View = (props) => {
                         <h4 className="bookAuthor">Author: {book.author}</h4>
                         <p className="bookPages">Pages: {book.pages}</p>
                         <p className="bookRead">Status: {book.status}</p>
+                        <button className="book delete" type="submit"
+                        onClick={() => deleteBook(book.id)} key={book.id}>Delete</button>
                     </li>         
                 </div>
             })}
