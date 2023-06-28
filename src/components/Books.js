@@ -4,7 +4,7 @@ const View = (props) => {
     const {books, deleteBook} = props;
 
     return (
-        <ul>
+        <ol>
             {books.length === 0 ? 
             <h1 className="empty">No books registered yet.</h1> : <h1 className="Title">Your Books</h1>}
             {books.map((book) => {
@@ -12,7 +12,7 @@ const View = (props) => {
                     book.status = "Unread";
                 }
                 return <div className="bookDiv" id={book.id}>
-                    <li key={book.id}>{book.number}
+                    <li key={book.id}>
                         <h3 className="bookTitle">Title: {book.title}</h3>
                         <h4 className="bookAuthor">Author: {book.author}</h4>
                         <p className="bookPages">Pages: {book.pages}</p>
@@ -22,7 +22,7 @@ const View = (props) => {
                     </li>         
                 </div>
             })}
-        </ul>
+        </ol>
     )
 
 }

@@ -13,7 +13,6 @@ class App extends Component {
                     pages: "",
                     id: uniqid(),
                     status: "",
-                    number: 1,
                 },
             books: [],
         };
@@ -34,7 +33,6 @@ class App extends Component {
         });
     }
 
-
     onSubmitBook = (e) => {
         e.preventDefault();
         this.setState({
@@ -45,7 +43,6 @@ class App extends Component {
                 pages: "",
                 id: uniqid(),
                 status: "",
-                number: this.state.book.number + 1,
             },
         });
     }
