@@ -1,7 +1,7 @@
 import React from "react";
 
 const View = (props) => {
-    const {books, deleteBook} = props;
+    const {books, deleteBook, isBookCompleted} = props;
 
     return (
         <ol>
@@ -17,7 +17,7 @@ const View = (props) => {
                         <h4 className="bookAuthor">Author: {book.author}</h4>
                         <p className="bookPages">Pages: {book.pages}</p>
                         <p className="bookRead">Status: {book.status}</p>
-                        {book.progress ? <p className="progress">Progress: {Number.parseInt(book.pagesRead / Number.parseInt(book.pages) * 100)}%</p> : console.log(book.progress)}
+                        {book.progress ? <p className="progress">Progress: {Number.parseInt(book.pagesRead / Number.parseInt(book.pages) * 100)}%</p> : console.log()}
                         <button className="book delete" type="submit"
                         onClick={() => deleteBook(book.id)} key={book.id}>Delete</button>
                     </li>         

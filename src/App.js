@@ -23,6 +23,7 @@ class App extends Component {
         this.onSubmitBook = this.onSubmitBook.bind(this);
         this.onDeleteBook = this.onDeleteBook.bind(this);
         this.selectReadInput = this.selectReadInput.bind(this);
+        this.isBookCompleted = this.isBookCompleted.bind(this);
     }
     
     onChangeInput = (e) => {
@@ -34,6 +35,13 @@ class App extends Component {
                 [name]: value,
             }
         });
+    }
+
+    isBookCompleted = (id) => {
+
+        const correctState = this.state.books.filter((book) => book.id === id);
+
+        console.log(correctState);
     }
 
     selectReadInput = (e) => {
@@ -52,6 +60,7 @@ class App extends Component {
             this.setState({
                 book: {
                     ...this.state.book,
+                    progress: false,
                     [name]: value
                 }
             })
@@ -127,7 +136,7 @@ class App extends Component {
                         <option value="Read" id="read">Read</option>
                     </select>
                     {this.state.book.progress ? 
-                    <>
+                    <div className="div progress">
                     <label htmlFor="progress page">Pages Read: </label>
                     <input type="number" id="pagesRead"
                     name="pagesRead"
@@ -135,14 +144,16 @@ class App extends Component {
                     onChange={this.onChangeInput}
                     min="0"
                     max="1000000"></input>
-                    </> : console.log(this.state.book.progress)}
+                    </div> : console.log(this.state.book.progress)}
                     <button type="submit" className="submitBook">
                         Add Book
                     </button>  
                 </form>
             </div>
             <div className="books">
-                <Books books={books} deleteBook={this.onDeleteBook}/>
+                <Books books={books} 
+                deleteBook={this.onDeleteBook} 
+                isBookCompleted={this.isBookCompleted}/>
             </div>
             <footer>
                 <h3>Created by stpafk</h3>
