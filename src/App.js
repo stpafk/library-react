@@ -98,13 +98,15 @@ class App extends Component {
                     <input type="text" id="titleInput"
                         onChange={this.onChangeInput}
                         name="title"
-                        value={book.title}>
+                        value={book.title}
+                        required={true}>
                     </input>
                     <label htmlFor="authorInput">Author: </label>
                     <input type="text" id="authorInput" 
                         name="author"
                         onChange={this.onChangeInput}
-                        value={book.author}>
+                        value={book.author}
+                        required={true}>
                     </input>
                     <label htmlFor="pages">Pages: </label>
                     <input type="number" id="pagesInput"  
@@ -112,7 +114,8 @@ class App extends Component {
                         value={book.pages}       
                         onChange={this.onChangeInput}
                         min="0"
-                        max="1000000">
+                        max="1000000"
+                        required={true}>
                     </input>
                     <label htmlFor="status">Status: </label>
                     <select id="status" 
