@@ -21,6 +21,7 @@ header {
     padding: 10px 10px;
     background-color: white;
     border: 4px solid black;
+    box-shadow: 10px 10px 10px rgba(113, 116, 165, 0.356);
 }
 
 .addBook {
@@ -76,17 +77,27 @@ select:focus {
     max-height: 80%;
     margin: 5vh 10vw 0 10vw;
     border: 4px solid black;
+    box-shadow: 10px 10px 10px rgba(113, 116, 165, 0.356)
 }
 
 ol > div {
-    margin: 0 2vw 2vh 0;
+    margin: 0 5vw 5vh 0;
+}
+
+ol div:last-child {
+    margin-bottom: 5vh;
+}
+
+li h3, h4 {
+    border-bottom: 4px solid black;
 }
 
 .bookDiv {
     display: flex;
     border: 4px solid black;
     padding: 20px;
-    background-color: var(--bg-color)
+    background-color: var(--bg-color);
+    box-shadow: 10px 10px 10px rgba(165, 147, 113, 0.356);
 }
 
 footer {

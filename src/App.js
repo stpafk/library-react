@@ -13,6 +13,8 @@ class App extends Component {
                     pages: "",
                     id: uniqid(),
                     status: "",
+                    progress: false,
+                    pagesRead: "",
                 },
             books: [],
         };
@@ -20,6 +22,7 @@ class App extends Component {
         this.onChangeInput = this.onChangeInput.bind(this);
         this.onSubmitBook = this.onSubmitBook.bind(this);
         this.onDeleteBook = this.onDeleteBook.bind(this);
+        this.selectReadInput = this.selectReadInput.bind(this);
     }
     
     onChangeInput = (e) => {
@@ -33,6 +36,28 @@ class App extends Component {
         });
     }
 
+    selectReadInput = (e) => {
+        const name = e.target.name;
+        const value = e.target.value;
+
+        if (value === "Reading") {
+            this.setState({
+                book: {
+                    ...this.state.book,
+                    [name]:value,
+                    progress: true,
+                }
+            })
+        } else {
+            this.setState({
+                book: {
+                    ...this.state.book,
+                    [name]: value
+                }
+            })
+        }
+    }
+
     onSubmitBook = (e) => {
         e.preventDefault();
         this.setState({
@@ -43,6 +68,8 @@ class App extends Component {
                 pages: "",
                 id: uniqid(),
                 status: "",
+                progress: false,
+                pagesRead: "",
             },
         });
     }
@@ -90,12 +117,22 @@ class App extends Component {
                     <label htmlFor="status">Status: </label>
                     <select id="status" 
                         name = "status"
-                        onChange={this.onChangeInput}
+                        onChange={this.selectReadInput}
                         value={book.status}>
                         <option value="Unread" id="unread">Unread</option>
                         <option value="Reading" id="reading">Reading</option>
                         <option value="Read" id="read">Read</option>
                     </select>
+                    {this.state.book.progress ? 
+                    <>
+                    <label htmlFor="progress page">Pages Read: </label>
+                    <input type="number" id="pagesRead"
+                    name="pagesRead"
+                    value={this.pagesRead}
+                    onChange={this.onChangeInput}
+                    min="0"
+                    max="1000000"></input>
+                    </> : console.log(this.state.book.progress)}
                     <button type="submit" className="submitBook">
                         Add Book
                     </button>  
